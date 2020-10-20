@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cojocaru_Dragos_Lab2"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="CanResize" Background="#FFBC5A">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="#FFBC5A" Loaded="frmMain_Loaded">
     <Grid>
         <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" HorizontalAlignment="Center" Height="49" Margin="137,26,0,0" VerticalAlignment="Top" Width="497" FontSize="24" FontWeight="Bold" FontFamily="Comic Sans MS" Foreground="White"/>
         <GroupBox x:Name="gbRaised" Header="Raised" HorizontalAlignment="Left" Height="106" Margin="121,95,0,0" VerticalAlignment="Top" Width="186" FontWeight="Bold" FontFamily="Comic Sans MS" Background="#FFFFBF5A" Foreground="White" BorderBrush="White" FontSize="14">
@@ -28,8 +28,8 @@
         </GroupBox>
         <GroupBox x:Name="gbSale" Header="Current Sale" HorizontalAlignment="Center" Height="188" Margin="0,236,0,0" VerticalAlignment="Top" Width="690" FontWeight="Bold" FontFamily="Comic Sans MS" Background="#FFFFBF5A" BorderBrush="White" Foreground="White" FontSize="14">
             <Canvas>
-                <Label x:Name="lblQuantity" Content="Quantity" Height="29" Canvas.Left="198" Canvas.Top="10" Width="81" Foreground="White" FontFamily="Comic Sans MS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13"/>
-                <TextBox x:Name="txtQuantity" Height="25" Canvas.Left="279" Canvas.Top="10" Text="0" TextWrapping="Wrap" Width="60" Background="#FFC2DFE4" BorderBrush="White" FontSize="13" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label x:Name="lblQuantity" Content="Quantity" Height="29" Canvas.Left="198" Canvas.Top="8" Width="81" Foreground="White" FontFamily="Comic Sans MS" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13"/>
+                <TextBox x:Name="txtQuantity" Height="25" Canvas.Left="279" Canvas.Top="10" Text="0" TextWrapping="Wrap" Width="60" Background="#FFC2DFE4" BorderBrush="White" FontSize="13" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyUp="txtQuantity_KeyPress"/>
                 <Label x:Name="lblType" Content="Type" Height="30" Canvas.Top="120" Width="58" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13" Canvas.Left="-3"/>
                 <ComboBox x:Name="cmbType" Height="26" Canvas.Left="58" Canvas.Top="122" Width="114" BorderBrush="White" Background="#FFC2DFE4" FontSize="13"/>
                 <Label x:Name="lblPrice" Content="Price" Height="25" Canvas.Top="10" Width="58" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="13"/>
@@ -42,15 +42,15 @@
                 <Button x:Name="btnCheckOut" Content="Checkout" Height="50" Canvas.Left="521" Canvas.Top="101" Width="147" FontWeight="Bold" BorderBrush="White" Background="#33702C" Foreground="White" FontSize="13"/>
             </Canvas>
         </GroupBox>
-        <Menu HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="109" FontFamily="Comic Sans MS" Background="#FFFAE5C4" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5">
+        <Menu x:Name="mnuMain"  HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="109" FontFamily="Comic Sans MS" Background="#FFFAE5C4" BorderBrush="Black" BorderThickness="0.5,0.5,0.5,0.5">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Doughnuts">
                 <MenuItem Header="Make">
                     <MenuItem Header="Raised">
-                        <MenuItem Header="Glazed"/>
-                        <MenuItem Header="Sugar"/>
+                        <MenuItem x:Name="glazedToolStripMenuItem" Header="Glazed" Click="glazedToolStripMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarToolStripMenuItem" Header="Sugar" IsCheckable="True" Click="sugarToolStripMenuItem_Click"/>
                     </MenuItem>
                     <MenuItem Header="Filled">
                         <MenuItem Header="Lemon"/>
@@ -58,7 +58,7 @@
                         <MenuItem Header="Vanilla"/>
                     </MenuItem>
                 </MenuItem>
-                <MenuItem Header="Stop"/>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
 
